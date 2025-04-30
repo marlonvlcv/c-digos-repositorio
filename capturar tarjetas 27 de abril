@@ -1,0 +1,14 @@
+import json
+
+ruta_del_archivo = r"C:\Users\306\cuartos_final.json"  
+
+with open(ruta_del_archivo, "r", encoding="utf-8") as archivo:
+    datos = json.load(archivo)
+
+total_tarjetas_rojas = 0
+
+for fase in datos:
+    for partido in fase['Resultados']:
+        total_tarjetas_rojas += partido['tarjetas']['amarillas']
+
+print(f"Total de tarjetas amarillas: {total_tarjetas_rojas}")
